@@ -1,4 +1,4 @@
-package com.pudasaini.ridangonews.ui.theme
+package com.pudasaini.ridangonews.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

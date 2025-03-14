@@ -1,4 +1,4 @@
-package com.pudasaini.ridangonews.ui.theme
+package com.pudasaini.ridangonews.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

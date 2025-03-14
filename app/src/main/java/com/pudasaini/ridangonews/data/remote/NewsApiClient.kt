@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NewsApiClient {
     private const val BASE_URL = "https://newsapi.org/v2/"
 
-    val newsApi: NewsApiInterface by lazy {
+    val newsApi: NewsApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(
@@ -18,6 +18,6 @@ object NewsApiClient {
             )
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(NewsApiInterface::class.java)
+            .create(NewsApiService::class.java)
     }
 }
