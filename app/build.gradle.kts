@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -87,13 +88,14 @@ dependencies {
 
     // Pagination
     implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.compose.paging)
 
     // Protobuf
     implementation(libs.protobuf.javalite)
 
-    // Dependency Injection
+    // Dependency Injection with Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-
+    implementation(libs.hilt.navigation.compose)
 
 }
