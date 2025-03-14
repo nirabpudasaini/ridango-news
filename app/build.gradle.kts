@@ -91,5 +91,9 @@ dependencies {
     // Protobuf
     implementation(libs.protobuf.javalite)
 
+    // Dependency Injection
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
 
 }
