@@ -98,4 +98,12 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
 
+    // Navigation
+    implementation(libs.navigation.compose)
+
+    // Image
+    implementation(libs.coil.compose)
+
+    // Article display
+    implementation(libs.webview)
 }
