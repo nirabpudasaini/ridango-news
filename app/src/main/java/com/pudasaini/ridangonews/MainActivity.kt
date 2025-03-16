@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import com.pudasaini.ridangonews.presentation.NewsAppNavigation
 import com.pudasaini.ridangonews.presentation.ui.screen.NewsScreen
 import com.pudasaini.ridangonews.presentation.ui.theme.RidangoNewsTheme
 import com.pudasaini.ridangonews.presentation.viewmodel.NewsViewModel
@@ -18,8 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RidangoNewsTheme {
-                NewsScreen {
-                }
+                NewsAppNavigation()
             }
         }
     }

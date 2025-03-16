@@ -8,18 +8,26 @@ import com.pudasaini.ridangonews.data.paging.NewsPagingSource
 import com.pudasaini.ridangonews.data.remote.NewsApiService
 import com.pudasaini.ridangonews.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
+import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
     private val newsApi: NewsApiService
 ): NewsRepository {
+
+    private val articlesCache = ConcurrentHashMap<String, ArticleDto>()
+
     override fun getTopHeadlines(): Flow<PagingData<ArticleDto>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 21,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { NewsPagingSource(newsApi)}
+            pagingSourceFactory = { NewsPagingSource(newsApi, articlesCache)}
         ).flow
+    }
+
+    override suspend fun getArticleByUrl(url: String): ArticleDto? {
+        return articlesCache[url]
     }
 }

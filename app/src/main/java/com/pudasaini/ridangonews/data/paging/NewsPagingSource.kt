@@ -4,9 +4,11 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.pudasaini.ridangonews.data.model.ArticleDto
 import com.pudasaini.ridangonews.data.remote.NewsApiService
+import java.util.concurrent.ConcurrentHashMap
 
 class NewsPagingSource(
-    private val newsApi: NewsApiService
+    private val newsApi: NewsApiService,
+    private val cache: ConcurrentHashMap<String, ArticleDto>
 ) : PagingSource<Int, ArticleDto>(){
     override fun getRefreshKey(state: PagingState<Int, ArticleDto>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
@@ -23,7 +25,11 @@ class NewsPagingSource(
                 page = pageNumber
             )
 
-            LoadResult.Page(
+            response.articles.forEach{ article ->
+                cache[article.url] = article
+            }
+
+            return LoadResult.Page(
                 data = response.articles,
                 prevKey = if (pageNumber == 1) null else pageNumber - 1,
                 nextKey = if (response.articles.isEmpty()) null else pageNumber + 1
