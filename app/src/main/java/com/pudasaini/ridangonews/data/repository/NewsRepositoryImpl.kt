@@ -7,8 +7,6 @@ import com.pudasaini.ridangonews.data.model.ArticleDto
 import com.pudasaini.ridangonews.data.paging.NewsPagingSource
 import com.pudasaini.ridangonews.data.remote.NewsApiService
 import com.pudasaini.ridangonews.data.remote.SaveApiService
-import com.pudasaini.ridangonews.data.utils.ProtoConverter.toProto
-import com.pudasaini.ridangonews.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject

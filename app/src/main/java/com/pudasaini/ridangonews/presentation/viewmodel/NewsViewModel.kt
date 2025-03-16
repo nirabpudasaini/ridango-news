@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.pudasaini.ridangonews.data.model.ArticleDto
-import com.pudasaini.ridangonews.domain.repository.NewsRepository
+import com.pudasaini.ridangonews.data.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking

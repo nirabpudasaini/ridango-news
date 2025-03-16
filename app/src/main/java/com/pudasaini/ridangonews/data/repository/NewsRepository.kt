@@ -1,4 +1,4 @@
-package com.pudasaini.ridangonews.domain.repository
+package com.pudasaini.ridangonews.data.repository
 
 import androidx.paging.PagingData
 import com.pudasaini.ridangonews.data.model.ArticleDto

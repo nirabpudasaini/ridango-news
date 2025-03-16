@@ -5,7 +5,7 @@ import com.pudasaini.ridangonews.data.remote.NewsApiService
 import com.pudasaini.ridangonews.data.remote.SaveApiService
 import com.pudasaini.ridangonews.data.remote.SaveApiclient
 import com.pudasaini.ridangonews.data.repository.NewsRepositoryImpl
-import com.pudasaini.ridangonews.domain.repository.NewsRepository
+import com.pudasaini.ridangonews.data.repository.NewsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
