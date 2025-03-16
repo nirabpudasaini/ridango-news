@@ -21,7 +21,7 @@ A modern Android application fetching top news headlines using the [News API](ht
 ### Setup
 1. Get your API key from [News API Key](https://newsapi.org/register)
 2. Clone the repository
-3. Add the follow line to your local.properties with the API key to get started.
+3. Add the API key to your local.properties file to get started.
 ```
 NEWS_API_KEY="your-api-key-from-above-link"
 ```
