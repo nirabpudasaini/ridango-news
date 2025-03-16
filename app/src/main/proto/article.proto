@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "com.pudasaini.ridangonews.proto";
+option java_outer_classname = "ArticleProto";
+
+message Article{
+  string title = 1;
+  Source source = 2;
+  string url = 3;
+  optional string image_url = 4;
+  string published_at = 5;
+  optional string description = 6;
+  optional string content = 7;
+
+  message Source {
+    string name = 1;
+  }
+}

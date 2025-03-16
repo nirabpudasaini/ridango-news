@@ -6,13 +6,17 @@ import androidx.paging.PagingData
 import com.pudasaini.ridangonews.data.model.ArticleDto
 import com.pudasaini.ridangonews.data.paging.NewsPagingSource
 import com.pudasaini.ridangonews.data.remote.NewsApiService
+import com.pudasaini.ridangonews.data.remote.SaveApiService
+import com.pudasaini.ridangonews.data.utils.ProtoConverter.toProto
 import com.pudasaini.ridangonews.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject
+import javax.inject.Named
 
 class NewsRepositoryImpl @Inject constructor(
-    private val newsApi: NewsApiService
+    private val newsApi: NewsApiService,
+    @Named("saveApi") private val saveApi: SaveApiService
 ): NewsRepository {
 
     private val articlesCache = ConcurrentHashMap<String, ArticleDto>()
@@ -29,5 +33,10 @@ class NewsRepositoryImpl @Inject constructor(
 
     override suspend fun getArticleByUrl(url: String): ArticleDto? {
         return articlesCache[url]
+    }
+
+    override suspend fun saveArticle(article: ArticleDto) {
+        // Since api is calling mock url this does not work currently
+        // val respose = saveApi.saveArticle(article.toProto())
     }
 }

@@ -36,7 +36,7 @@ fun NewsAppNavigation(){
             article?.let {
                 ArticleDetailScreen(
                     article = it,
-                    onSaveClick = { /*TODO*/ },
+                    onSaveClick = { viewModel.saveArticle(article) },
                     onBack = {navController.popBackStack()})
             }
 

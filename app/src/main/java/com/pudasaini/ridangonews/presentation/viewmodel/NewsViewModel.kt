@@ -6,6 +6,7 @@ import androidx.paging.cachedIn
 import com.pudasaini.ridangonews.data.model.ArticleDto
 import com.pudasaini.ridangonews.domain.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
@@ -17,5 +18,11 @@ class NewsViewModel @Inject constructor(
 
     fun getArticleByUrl(url: String): ArticleDto?{
         return runBlocking { repository.getArticleByUrl(url) }
+    }
+
+    fun saveArticle(article: ArticleDto){
+        viewModelScope.launch {
+            repository.saveArticle(article)
+        }
     }
 }

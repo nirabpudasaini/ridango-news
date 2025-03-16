@@ -57,7 +57,6 @@ fun ArticleDetailScreen(
             ExtendedFloatingActionButton(
                 onClick =  {
                 onSaveClick()
-                Toast.makeText(context, "Article saved", Toast.LENGTH_SHORT).show()
                 },
                 icon = {Icon(Icons.Default.Favorite, contentDescription = "Save") },
                 text = {Text ("Save Article")}

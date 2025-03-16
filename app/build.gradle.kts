@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.protobuf)
 }
 
 android {
@@ -57,7 +58,29 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    configurations{
+        implementation{
+            exclude(module = "protobuf-java")
+        }
+    }
 }
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.24.0"
+    }
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+            }
+        }
+    }
+}
+
+
 
 dependencies {
 
@@ -80,6 +103,7 @@ dependencies {
     // Networking: Retrofit + OkHttp
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation (libs.converter.protobuf)
     implementation(libs.logging.interceptor)
 
     // Database: Room (for offline support)
@@ -104,6 +128,4 @@ dependencies {
     // Image
     implementation(libs.coil.compose)
 
-    // Article display
-    implementation(libs.webview)
 }
